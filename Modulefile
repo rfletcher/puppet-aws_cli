@@ -1,0 +1,7 @@
+name         'rfletcher-aws_cli'
+version      '0.0.1'
+license      'MIT License'
+summary      'A puppet module for AWS command line tools'
+description  'Install or remove AWS command line tools'
+project_page 'https://github.com/rfletcher/puppet-aws_cli'
+dependency   'stankevich/python', '>= 1.7.2'
