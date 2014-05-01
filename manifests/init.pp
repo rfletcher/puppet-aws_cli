@@ -56,8 +56,14 @@ class aws_cli (
     require => Class['python'],
   }
 
+  $file_ensure = $ensure ? {
+    absent  => absent,
+    purged  => absent,
+    default => present,
+  }
+
   file { '/etc/profile.d/aws_cli.sh':
-    ensure  => $ensure,
+    ensure  => $file_ensure,
     content => template('aws_cli/aws_cli.sh.erb'),
     mode    => 0644,
   }
