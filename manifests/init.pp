@@ -62,9 +62,9 @@ class aws_cli (
     default => present,
   }
 
-  file { '/etc/profile.d/aws_cli.sh':
+  file { '/etc/profile.d/aws.sh':
     ensure  => $file_ensure,
-    content => template('aws_cli/aws_cli.sh.erb'),
+    content => template('aws_cli/aws.sh.erb'),
     mode    => 0644,
   }
 }
