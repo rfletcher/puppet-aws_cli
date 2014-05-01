@@ -25,7 +25,7 @@
 # === Examples
 #
 #  class { 'aws_cli':
-#    ensure => 'present',
+#    ensure => present,
 #    output => 'text',
 #  }
 #
@@ -38,7 +38,7 @@
 # Copyright 2014 Rick Fletcher
 #
 class aws_cli (
-  $ensure     = 'present',
+  $ensure     = present,
 
   $access_key = undef,
   $secret     = undef,
@@ -65,6 +65,6 @@ class aws_cli (
   file { '/etc/profile.d/aws.sh':
     ensure  => $file_ensure,
     content => template('aws_cli/aws.sh.erb'),
-    mode    => 0644,
+    mode    => '0644',
   }
 }
