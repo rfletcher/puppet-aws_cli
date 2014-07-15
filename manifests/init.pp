@@ -8,13 +8,13 @@
 #   present, latest, absent
 #
 # [*access_key*]
-#   Your AWS access key
+#   A global AWS access key
 #
 # [*secret*]
-#   Your AWS secret key
+#   A global AWS secret key
 #
 # [*token*]
-#   Your AWS token (temporary credentials)
+#   A global AWS token (temporary credentials)
 #
 # [*output*]
 #   The default output format: json, table, text
