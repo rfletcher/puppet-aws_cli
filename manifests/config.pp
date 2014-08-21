@@ -56,20 +56,15 @@ define aws_cli::config (
   $config_path = "${home_dir}/.aws/config"
   $config_dir = dirname( $config_path )
 
-  file { $config_path:
+  file { [
+    $config_path,
+    $config_dir,
+  ]:
     ensure => $ensure,
-    owner  => $title,
+    force  => true,
     group  => $title,
+    owner  => $title,
     mode   => '0600',
-  }
-
-  file { $config_dir:
-    ensure  => $ensure ? { 'present' => directory, default => $ensure },
-    owner   => $title,
-    group   => $title,
-    mode    => '0600',
-    recurse => true,
-    require => File[$config_path],
   }
 
   if $ensure == 'present' {
