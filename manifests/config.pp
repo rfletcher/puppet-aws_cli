@@ -7,6 +7,10 @@
 # [*ensure*]
 #   present, absent
 #
+# [*home_dir*]
+#   The home dir of the user who's config will be updated. Defaults to
+#   "/home/${title}".
+#
 # [*access_key*]
 #   Your AWS access key
 #
@@ -40,7 +44,7 @@
 define aws_cli::config (
   $ensure     = present,
 
-  $user_home  = "/home/${title}",
+  $home_dir   = "/home/${title}",
 
   $access_key = undef,
   $secret     = undef,
@@ -49,7 +53,7 @@ define aws_cli::config (
   $output     = undef,
   $region     = undef,
 ) {
-  $config_path = "${user_home}/.aws/config"
+  $config_path = "${home_dir}/.aws/config"
   $config_dir = dirname( $config_path )
 
   Ini_setting {
