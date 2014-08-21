@@ -4,9 +4,6 @@
 #
 # === Parameters
 #
-# [*user*]
-#   defaults to ${title}
-#
 # [*ensure*]
 #   present, absent
 #
@@ -43,7 +40,6 @@
 define aws_cli::config (
   $ensure     = present,
 
-  $user       = $title,
   $user_home  = "/home/${title}",
 
   $access_key = undef,
