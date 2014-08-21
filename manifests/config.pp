@@ -56,12 +56,6 @@ define aws_cli::config (
   $config_path = "${home_dir}/.aws/config"
   $config_dir = dirname( $config_path )
 
-  Ini_setting {
-    path    => $config_path,
-    section => 'default',
-    require => File[$config_path],
-  }
-
   file { $config_path:
     ensure => $ensure,
     owner  => $title,
@@ -79,6 +73,12 @@ define aws_cli::config (
   }
 
   if $ensure == 'present' {
+    Ini_setting {
+      path    => $config_path,
+      section => 'default',
+      require => File[$config_path],
+    }
+
     exec { "mkdir -p ${config_dir}":
       creates => $config_dir,
       before  => File[$config_path],
