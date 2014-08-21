@@ -7,9 +7,6 @@
 # [*user*]
 #   defaults to ${title}
 #
-# [*path*]
-#   defaults to /home/${user}/.aws/config
-#
 # [*ensure*]
 #   present, absent
 #
