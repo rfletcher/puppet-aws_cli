@@ -64,6 +64,9 @@ define aws_cli::config (
 
   file { $config_path:
     ensure => $ensure,
+    owner  => $title,
+    group  => $title,
+    mode   => '0600',
   }
 
   file { $config_dir:
