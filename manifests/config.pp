@@ -76,7 +76,7 @@ define aws_cli::config (
 
     exec { "mkdir -p ${config_dir}":
       creates => $config_dir,
-      before  => File[$config_path],
+      before  => [File[$config_path], File[$config_dir]],
     }
 
     ini_setting { "$config_path default/aws_access_key_id":
